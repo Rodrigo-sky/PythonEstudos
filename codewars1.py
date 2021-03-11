@@ -31,3 +31,4 @@ def square_digits(num): #recebe o numero
     return (lista)
 
 print(square_digits(24351))
+# teste square
