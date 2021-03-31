@@ -19,15 +19,20 @@ def usuario_escolhe_jogada(n,m):
     jogada_valida = False
     while (jogada_valida == False):
         jogada = int(input("Quantas peças você vai tirar? "))
-        if (jogada <= m and jogada > 0 ):
-            jogada_valida = True
-            if jogada > 1:
-                print("Voce tirou", jogada, "peças.")
-            else:
-                print("Você tirou uma peça")
-            return jogada
+        if (jogada > n):
+            print("Por Favor faça uma jogada valida!")
+            usuario_escolhe_jogada(n,m)
         else:
-            print("Oops! Jogada inválida! Tente de novo.")
+            if (jogada <= m and jogada > 0 ):
+                jogada_valida = True
+                if jogada > 1:
+                    print("Voce tirou", jogada, "peças.")
+                    return jogada
+                else:
+                    print("Você tirou uma peça")
+                return jogada
+            else:
+                print("Oops! Jogada inválida! Tente de novo.")
 
 
 def campeonato ():
@@ -131,4 +136,4 @@ def partida ():
                 print()
             switch_jogador = True
         
-print(campeonato())
+print(usuario_escolhe_jogada(3,5))
