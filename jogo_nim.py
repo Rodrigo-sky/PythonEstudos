@@ -83,9 +83,9 @@ def campeonato ():
 def partida ():   
     n = int(input("Quantas peças? "))
     m = int(input("Limite de peças por jogada? "))
-    if n <= m:
-        print("Por Favor faça uma jogada valida!")
-        partida()
+    # if n <= m:
+    #     print("Por Favor faça uma jogada valida!")
+    #     partida()
 
     print("Obrigado!")
     primeira_jogador = True
@@ -136,4 +136,4 @@ def partida ():
                 print()
             switch_jogador = True
         
-print(usuario_escolhe_jogada(3,5))
+print(partida())
