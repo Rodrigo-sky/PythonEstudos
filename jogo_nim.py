@@ -5,15 +5,14 @@ def computador_escolhe_jogada(n,m):
         if (restantes % (m+1) == 0):
             print("O computador tirou ", aux, "peças.")
             return (aux)
-        elif (n<=m):
-            print("O computador tirou ", n, "peças.")
-            return (n)
-        else:
-            print("O computador tirou ", m, "peças.")
-            return (m)
         aux = aux + 1
-
     
+    if (n <= m):
+        print("O computador tirou ", n, "peças.")
+        return (n)
+    else:
+        print("O computador tirou ", m, "peças.")
+        return (m)
 
 
 def usuario_escolhe_jogada(n,m):
@@ -38,7 +37,6 @@ def campeonato ():
     escolha = input("2 - para jogar um campeonato ")
     score_pc = 0
     score_user = 0
-
 
     if (escolha == "1"):
         print("Voce escolheu uma partida isolada")
@@ -77,11 +75,13 @@ def campeonato ():
         return("**** Final do campeonato! ****")
 
 
-
-def partida ():
-    
+def partida ():   
     n = int(input("Quantas peças? "))
     m = int(input("Limite de peças por jogada? "))
+    if n <= m:
+        print("Por Favor faça uma jogada valida!")
+        partida()
+
     print("Obrigado!")
     primeira_jogador = True
     primeira_computador = True
@@ -102,8 +102,7 @@ def partida ():
                 primeira_computador = False
                 switch_jogador = False
                 print("Computador começa!")
-                print()
-          
+                print()      
     while(n >= 0):
         if switch_jogador == True:
             jogada_user = usuario_escolhe_jogada(n,m)
@@ -132,6 +131,4 @@ def partida ():
                 print()
             switch_jogador = True
         
-
-
 print(campeonato())
