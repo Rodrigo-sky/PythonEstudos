@@ -20,7 +20,7 @@ def usuario_escolhe_jogada(n,m):
     while (jogada_valida == False):
         jogada = int(input("Quantas peças você vai tirar? "))
         if (jogada > n):
-            print("Por Favor faça uma jogada valida!")
+            print("Oops! Jogada inválida! Tente de novo.")
             usuario_escolhe_jogada(n,m)
         else:
             if (jogada <= m and jogada > 0 ):
@@ -83,16 +83,12 @@ def campeonato ():
 def partida ():   
     n = int(input("Quantas peças? "))
     m = int(input("Limite de peças por jogada? "))
-    # if n <= m:
-    #     print("Por Favor faça uma jogada valida!")
-    #     partida()
 
     print("Obrigado!")
     primeira_jogador = True
     primeira_computador = True
     switch_jogador = True
-    # vitoria_pc = False
-    # vitoria_user = False
+
     
     if (n % (m+1) == 0):        #testa a primeira jogada do player
         if primeira_jogador == True:
@@ -127,7 +123,8 @@ def partida ():
             n = n - jogada_pc
             if(n <= 0):
                 #vitoria_pc = True
-                return("Fim do jogo! O computador ganhou!")
+                print("Fim do jogo!\n")
+                return("O computador ganhou!")
             if n > 1:
                 print("Agora restam", n, "peças no tabuleiro.")
                 print()
@@ -136,4 +133,5 @@ def partida ():
                 print()
             switch_jogador = True
         
-print(partida())
+#print(partida())
+(usuario_escolhe_jogada(3,5))
