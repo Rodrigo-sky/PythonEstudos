@@ -15,15 +15,17 @@ def computador_escolhe_jogada(n,m):
 
 def usuario_escolhe_jogada(n,m):
    jogada = int(input('Quantas peças você vai tirar? '))
-   while jogada > n:
-      print('Oops! Jogada inválida! Tente de novo.')
-      jogada = int(input('Quantas peças você vai tirar? '))
-      
-      if jogada <= m and jogada > 0:
-         print(f'Voce tirou {jogada} peças.')
-         return jogada
-      else:
+   while jogada > 0:
+      if jogada > n:
          print('Oops! Jogada inválida! Tente de novo.')
+         jogada = int(input('Quantas peças você vai tirar? '))
+      else:
+         if jogada <= m and jogada > 0:
+            print(f'Voce tirou {jogada} peças.')
+            return jogada
+         else:
+            print('Oops! Jogada inválida! Tente de novo.')
+            jogada = int(input('Quantas peças você vai tirar? '))
 
 def partida():
    n = int(input('Quantas peças? '))
@@ -74,18 +76,16 @@ def campeonato():
       aux += 1
    print(f'**** Final do campeonato! ****\nPlacar: Você {score_user} X {score_pc} Computador')
          
-
+def Main():
+   print('Bem-vindo ao jogo do NIM! Escolha:\n')
+   escolha = int(input(f'\n1 - para jogar uma partida isolada\n2 - para jogar um campeonato '))
+   if (escolha == "1"):
+      partida()
+   elif (escolha != 1 and escolha != 2):
+      print('\nOops! Escolha inválida! Tente de novo.')
+      escolha = int(input(f'\n1 - para jogar uma partida isolada\n2 - para jogar um campeonato '))
+   else:
+      campeonato()
          
 
-
-
-
-         
-   
-
-
-print(f'teste aleatorio. {usuario_escolhe_jogada(9,2)}')
-#campeonato()
-#partida()
-
-#Main()
+Main()
