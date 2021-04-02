@@ -134,4 +134,4 @@ def partida ():
             switch_jogador = True
         
 #print(partida())
-(usuario_escolhe_jogada(3,5))
+usuario_escolhe_jogada(5,3)

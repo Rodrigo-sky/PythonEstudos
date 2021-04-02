@@ -15,7 +15,7 @@ def computador_escolhe_jogada(n,m):
 
 def usuario_escolhe_jogada(n,m):
    jogada = int(input('Quantas peças você vai tirar? '))
-   while jogada > 0:
+   while jogada >= 0 or jogada <= 0:
       if jogada > n:
          print('Oops! Jogada inválida! Tente de novo.')
          jogada = int(input('Quantas peças você vai tirar? '))
@@ -26,6 +26,7 @@ def usuario_escolhe_jogada(n,m):
          else:
             print('Oops! Jogada inválida! Tente de novo.')
             jogada = int(input('Quantas peças você vai tirar? '))
+   
 
 def partida():
    n = int(input('Quantas peças? '))
@@ -56,7 +57,8 @@ def partida():
          if n >= 1:
             print(f'Agora restam {n} peças no tabuleiro.\n')
          else:
-            return('O computador ganhou!')
+            print('Fim do jogo! O computador ganhou!')
+            return('computador')
          pc_vez = False
          jogador_vez = True
 
@@ -79,13 +81,14 @@ def campeonato():
 def Main():
    print('Bem-vindo ao jogo do NIM! Escolha:\n')
    escolha = int(input(f'\n1 - para jogar uma partida isolada\n2 - para jogar um campeonato '))
-   if (escolha == "1"):
+   if escolha == 1:
       partida()
-   elif (escolha != 1 and escolha != 2):
+   elif escolha == 2:#(escolha != 1 and escolha != 2):
+      campeonato()
+   else:
       print('\nOops! Escolha inválida! Tente de novo.')
       escolha = int(input(f'\n1 - para jogar uma partida isolada\n2 - para jogar um campeonato '))
-   else:
-      campeonato()
          
 
 Main()
+#usuario_escolhe_jogada(5,3)
