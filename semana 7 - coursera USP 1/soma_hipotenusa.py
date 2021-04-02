@@ -1,4 +1,4 @@
-def e_hipotenusa(num):
+def é_hipotenusa(num):
     teste = input("teste")
     i = 1
     k = 1
@@ -14,7 +14,7 @@ def e_hipotenusa(num):
         i = i + 1
     return False
 
-print(e_hipotenusa(25))
+print(é_hipotenusa(25))
 
 
 # def soma_hipotenusa(num):
