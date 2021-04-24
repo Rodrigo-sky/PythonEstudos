@@ -81,29 +81,51 @@ def calcula_assinatura(texto):
    # rel_hapax_lego = 0 #número de palavras que aparecem uma única vez dividido pelo total de palavras.
    # tam_med_frase = 0 #soma do número de caracteres em cada frase dividida pelo número de frases no texto
    sentece = separa_sentencas(texto)
-   #tamanho medio da sentença: soma dos números de caracteres em todas as sentenças dividida pelo número de sentenças.
-   def calc_med_sentence(sentece):
-      soma = 0
+   def calc_sentence(sentece):
+      tam_med_sentence = 0
+      sentence_complex = 0
+      tam_med_frase = 0
       for i in range(len(sentece)):
-         soma = soma + len(sentece[i])
-      soma = soma / (i+1)
-      return soma
-   print(calc_med_sentence(sentece)) 
-   tam_med_sentence = calc_med_sentence(sentece)
+         tam_med_sentence = tam_med_sentence + len(sentece[i])
+         sentence_complex = sentence_complex + len(separa_frases(sentece[i]))
+      #--------------------------------------------------------------------------
+      # x = 0
+      # for x in range(len(separa_frases(sentece[x]))):
+      #    tam_med_frase = tam_med_frase + len(separa_frases(sentece[x]))
+      # print(f'O tamanho medio das frases é {tam_med_frase}')
+      #--------------------------------------------------------------------------
 
+      print(f'A quantidade de frase é {sentence_complex} e sao {i+1} sentenças \nO tamanho medio das senteças é de {tam_med_sentence} caracteres')
+      tam_med_sentence = tam_med_sentence / (i+1)
+      sentence_complex = sentence_complex / (i+1)
+      # return tam_med_sentence
+      # return sentence_complex
+      pass
+   
+   tam_med_sentence = calc_sentence(sentece)
+
+
+   #    #tamanho medio da sentença: soma dos números de caracteres em todas as sentenças dividida pelo número de sentenças.
+   # def calc_med_sentence(sentece):
+   #    soma = 0
+   #    for i in range(len(sentece)):
+   #       soma = soma + len(sentece[i])
+   #    soma = soma / (i+1)
+   #    return soma
+   # print(calc_med_sentence(sentece)) 
+   # tam_med_sentence = calc_med_sentence(sentece)
 
    #  #número total de frases divido pelo número de sentenças.
-   def calc_cmplx_sentence(sentece):
-      qtds_frase = 0
-      for i in range(len(sentece)):
-         qtds_frase = qtds_frase + len(separa_frases(sentece[i]))
-      print(f'A quantidade de frase é {qtds_frase} e sao {i+1} sentenças')
-      qtds_frase = qtds_frase / (i+1)
-      return qtds_frase
-   print(calc_cmplx_sentence(sentece))
-   sentence_complex = calc_cmplx_sentence(sentece)
+   # def calc_cmplx_sentence(sentece):
+   #    qtds_frase = 0
+   #    for i in range(len(sentece)):
+   #       qtds_frase = qtds_frase + len(separa_frases(sentece[i]))
+   #    print(f'A quantidade de frase é {qtds_frase} e sao {i+1} sentenças')
+   #    qtds_frase = qtds_frase / (i+1)
+   #    return qtds_frase
+   # print(calc_cmplx_sentence(sentece))
+   # sentence_complex = calc_cmplx_sentence(sentece)
 
-   def calc_med_frase
    
 
 
@@ -120,6 +142,6 @@ texto4 = ('Contrary to popular belief, Lorem Ipsum is not simply random text. It
 texto3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 # print( separa_frases(separa_sentencas(texto3)[0]))
 # print( separa_palavras(separa_frases(separa_sentencas(texto3)[0])[0]))
-calcula_assinatura(texto4)
+calcula_assinatura(texto3)
 
 #AS FUNÇÕES PRE FEITAS GERAM LISTAS  DE CADA SEQUENCIA, ENTAO TENHO QUE FAZER UM LOOP DE CADA FUNÇÃO PARA CALCULAR A MEDIA DAS MESMAS
