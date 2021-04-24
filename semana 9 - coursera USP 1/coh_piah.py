@@ -74,19 +74,38 @@ def compara_assinatura(as_a, as_b):
    pass
 
 def calcula_assinatura(texto):
+   input('gay')
    '''IMPLEMENTAR. Essa funcao recebe um texto e deve devolver a assinatura do texto.'''
-   #soma dos tamanhos das palavras dividida pelo número total de palavras.
-   tam_med_pal = separa_palavras(separa_frases(separa_sentencas(texto1)))
-   print(tam_med_pal)
-
-   
+   #tam_med_pal = 0 #soma dos tamanhos das palavras dividida pelo número total de palavras.
    # type_token_rel = 0 #número de palavras diferentes dividido pelo número total de palavras.
    # rel_hapax_lego = 0 #número de palavras que aparecem uma única vez dividido pelo total de palavras.
-   # tam_med_sentence = 0 #soma dos números de caracteres em todas as sentenças dividida pelo número de sentenças.
-   # sentence_complex = 0 #número total de frases divido pelo número de sentenças.
    # tam_med_frase = 0 #soma do número de caracteres em cada frase dividida pelo número de frases no texto
+   sentece = separa_sentencas(texto)
+   #tamanho medio da sentença: soma dos números de caracteres em todas as sentenças dividida pelo número de sentenças.
+   def calc_med_sentence(sentece):
+      soma = 0
+      for i in range(len(sentece)):
+         soma = soma + len(sentece[i])
+      soma = soma / (i+1)
+      return soma
+   print(calc_med_sentence(sentece)) 
+   tam_med_sentence = calc_med_sentence(sentece)
 
-   pass
+
+   #  #número total de frases divido pelo número de sentenças.
+   def calc_cmplx_sentence(sentece):
+      qtds_frase = 0
+      for i in range(len(sentece)):
+         qtds_frase = qtds_frase + len(separa_frases(sentece[i]))
+      print(f'A quantidade de frase é {qtds_frase} e sao {i+1} sentenças')
+      qtds_frase = qtds_frase / (i+1)
+      return qtds_frase
+   print(calc_cmplx_sentence(sentece))
+   sentence_complex = calc_cmplx_sentence(sentece)
+
+   def calc_med_frase
+   
+
 
 def avalia_textos(textos, ass_cp):
    '''IMPLEMENTAR. Essa funcao recebe uma lista de textos e uma assinatura ass_cp e deve devolver o numero (1 a n) do texto com maior probabilidade de ter sido infectado por COH-PIAH.'''
@@ -95,8 +114,12 @@ def avalia_textos(textos, ass_cp):
 
 #textos para teste
 
-texto1 = "a pepa disse para o coelho: Coelho tu é um baita de um filho da puta sabia?"
+texto1 = "a peppa disse para o coelho: Coelho tu é um baita de um filho da puta sabia?"
 texto2 = " the peppa Said to the rabbit: Coelho, tu é muito cuzão zé " 
+texto4 = ('Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.')
 texto3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-print( separa_frases(separa_sentencas(texto3)[0]))
-print( separa_palavras(separa_frases(separa_sentencas(texto3)[0])[0]))
+# print( separa_frases(separa_sentencas(texto3)[0]))
+# print( separa_palavras(separa_frases(separa_sentencas(texto3)[0])[0]))
+calcula_assinatura(texto4)
+
+#AS FUNÇÕES PRE FEITAS GERAM LISTAS  DE CADA SEQUENCIA, ENTAO TENHO QUE FAZER UM LOOP DE CADA FUNÇÃO PARA CALCULAR A MEDIA DAS MESMAS
