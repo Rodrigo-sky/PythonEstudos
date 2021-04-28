@@ -80,14 +80,13 @@ def calcula_assinatura(texto):
    #tam_med_pal = 0 #soma dos tamanhos das palavras dividida pelo número total de palavras.
    # type_token_rel = 0 #número de palavras diferentes dividido pelo número total de palavras.
    # rel_hapax_lego = 0 #número de palavras que aparecem uma única vez dividido pelo total de palavras.
-   # tam_med_frase = 0 #soma do número de caracteres em cada frase dividida pelo número de frases no texto
    sentece = separa_sentencas(texto)
-
    tam_med_sentence = 0
    sentence_complex = 0
    tam_med_frase = 0
    aux = 0
    frases = []
+
    for i in range(len(sentece)):
       tam_med_sentence = tam_med_sentence + len(sentece[i])
       print("\ntamanho da sentença ",tam_med_sentence)
@@ -101,9 +100,10 @@ def calcula_assinatura(texto):
          print(f'tamanho de caracteres da frase é {tam_med_frase}')
       #-------------------------------------------------------------------
    
-   tam_med_frase = tam_med_frase / (aux+1)
+   # rel_hapax_lego = rel_hapax_lego /
    tam_med_sentence = tam_med_sentence / (i+1)
    sentence_complex = sentence_complex / (i+1)
+   tam_med_frase = tam_med_frase / (aux+1)
    
    print(f'\nTamanho médio de sentença: {tam_med_sentence}')
    print(f'Complexidade de sentença: {sentence_complex}')
