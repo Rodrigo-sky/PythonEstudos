@@ -75,58 +75,44 @@ def compara_assinatura(as_a, as_b):
 
 def calcula_assinatura(texto):
    input('gay')
+   print("--------------------------------------------------------------------------------------")
    '''IMPLEMENTAR. Essa funcao recebe um texto e deve devolver a assinatura do texto.'''
    #tam_med_pal = 0 #soma dos tamanhos das palavras dividida pelo número total de palavras.
    # type_token_rel = 0 #número de palavras diferentes dividido pelo número total de palavras.
    # rel_hapax_lego = 0 #número de palavras que aparecem uma única vez dividido pelo total de palavras.
    # tam_med_frase = 0 #soma do número de caracteres em cada frase dividida pelo número de frases no texto
    sentece = separa_sentencas(texto)
-   def calc_sentence(sentece):
-      tam_med_sentence = 0
-      sentence_complex = 0
-      tam_med_frase = 0
-      for i in range(len(sentece)):
-         tam_med_sentence = tam_med_sentence + len(sentece[i])
-         sentence_complex = sentence_complex + len(separa_frases(sentece[i]))
-      #--------------------------------------------------------------------------
-      # x = 0
-      # for x in range(len(separa_frases(sentece[x]))):
-      #    tam_med_frase = tam_med_frase + len(separa_frases(sentece[x]))
-      # print(f'O tamanho medio das frases é {tam_med_frase}')
-      #--------------------------------------------------------------------------
 
-      print(f'A quantidade de frase é {sentence_complex} e sao {i+1} sentenças \nO tamanho medio das senteças é de {tam_med_sentence} caracteres')
-      tam_med_sentence = tam_med_sentence / (i+1)
-      sentence_complex = sentence_complex / (i+1)
-      # return tam_med_sentence
-      # return sentence_complex
-      pass
+   tam_med_sentence = 0
+   sentence_complex = 0
+   tam_med_frase = 0
+   aux = 0
+   frases = []
+   for i in range(len(sentece)):
+      tam_med_sentence = tam_med_sentence + len(sentece[i])
+      print("\ntamanho da sentença ",tam_med_sentence)
+      # ------------------------------------------------------------------
+      sentence_complex = sentence_complex + len(separa_frases(sentece[i]))
+      print(f'complexidade | frases totais {sentence_complex} \n')
+      #-------------------------------------------------------------------
+      frases = frases + separa_frases(sentece[i])
+      for aux in range(len(frases)):
+         tam_med_frase = tam_med_frase + len(frases[aux])
+         print(f'tamanho de caracteres da frase é {tam_med_frase}')
+      #-------------------------------------------------------------------
    
-   tam_med_sentence = calc_sentence(sentece)
-
-
-   #    #tamanho medio da sentença: soma dos números de caracteres em todas as sentenças dividida pelo número de sentenças.
-   # def calc_med_sentence(sentece):
-   #    soma = 0
-   #    for i in range(len(sentece)):
-   #       soma = soma + len(sentece[i])
-   #    soma = soma / (i+1)
-   #    return soma
-   # print(calc_med_sentence(sentece)) 
-   # tam_med_sentence = calc_med_sentence(sentece)
-
-   #  #número total de frases divido pelo número de sentenças.
-   # def calc_cmplx_sentence(sentece):
-   #    qtds_frase = 0
-   #    for i in range(len(sentece)):
-   #       qtds_frase = qtds_frase + len(separa_frases(sentece[i]))
-   #    print(f'A quantidade de frase é {qtds_frase} e sao {i+1} sentenças')
-   #    qtds_frase = qtds_frase / (i+1)
-   #    return qtds_frase
-   # print(calc_cmplx_sentence(sentece))
-   # sentence_complex = calc_cmplx_sentence(sentece)
-
+   tam_med_frase = tam_med_frase / (aux+1)
+   tam_med_sentence = tam_med_sentence / (i+1)
+   sentence_complex = sentence_complex / (i+1)
    
+   print(f'\nTamanho médio de sentença: {tam_med_sentence}')
+   print(f'Complexidade de sentença: {sentence_complex}')
+   print(f'Tamanho médio de frase: {tam_med_frase}')
+   # return tam_med_sentence
+   # return sentence_complex
+   pass
+   
+
 
 
 def avalia_textos(textos, ass_cp):
@@ -138,7 +124,7 @@ def avalia_textos(textos, ass_cp):
 
 texto1 = "a peppa disse para o coelho: Coelho tu é um baita de um filho da puta sabia?"
 texto2 = " the peppa Said to the rabbit: Coelho, tu é muito cuzão zé " 
-texto4 = ('Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.')
+texto4 = "NxZero é uma banda de emocore gay formada em meados de 2005, quando um pobre morador gay de rua chamado Josefino Nogueira achou um violão podre na rua, faltavam 4 cordas, e ele percebeu que com essas 2 cordas ele podia fazer 4039 músicas diferentes com o mesmo ritmo. Andando pelas ruas, faminto e com vontade de dar, ele para no supermercado e se encontra com Silvio Santos que humildemente tira sua carteira recheada de barras de ouro, e lhe paga um X-Miseria (Pão com pão e nada dentro)."
 texto3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 # print( separa_frases(separa_sentencas(texto3)[0]))
 # print( separa_palavras(separa_frases(separa_sentencas(texto3)[0])[0]))
