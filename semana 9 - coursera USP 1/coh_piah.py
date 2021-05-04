@@ -71,18 +71,20 @@ def n_palavras_diferentes(lista_palavras):
 
 def compara_assinatura(as_a, as_b):
    '''IMPLEMENTAR. Essa funcao recebe duas assinaturas de texto e deve devolver o grau de similaridade nas assinaturas.'''
-   pass
+   ass = 0
+   for i in range(6):
+      x = abs(as_a[i] + as_b[i])
+      ass = ass + x
+   ass = ass / 6
+   return(ass)
 
 def calcula_assinatura(texto):
-   input('gay')
    '''IMPLEMENTAR. Essa funcao recebe um texto e deve devolver a assinatura do texto.'''
    sentece = separa_sentencas(texto)
    tam_med_sentence = 0
    sentence_complex = 0
    tam_med_frase = 0
    tam_med_palavra = 0
-   x = 0
-   y = 0
    frases = []
    palavras = []
 
@@ -105,8 +107,7 @@ def calcula_assinatura(texto):
       tam_med_palavra = tam_med_palavra + len(palavras[y])
    # print(n_palavras_unicas(palavras))
    # print(n_palavras_diferentes(palavras))
-      
-   
+   #-------------------------------------------------------------------
    tam_med_palavra = tam_med_palavra / (y+1)
    type_token_rel = n_palavras_diferentes(palavras)/ len(palavras)
    rel_hapax_lego = n_palavras_unicas(palavras)/ len(palavras)
@@ -123,7 +124,7 @@ def calcula_assinatura(texto):
    # print(f'Tamanho médio de frase: {tam_med_frase}')
    
 
-   pass
+   return[tam_med_palavra, type_token_rel, rel_hapax_lego, tam_med_sentence, sentence_complex, tam_med_frase]
    
 
 
