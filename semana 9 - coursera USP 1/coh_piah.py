@@ -73,7 +73,7 @@ def compara_assinatura(as_a, as_b):
 
    ass = 0
    for i in range(6):
-      x = abs(as_a[i] + as_b[i])
+      x = abs(as_a[i] - as_b[i])
       ass = ass + x
    ass = ass / 6
    return(ass)
@@ -116,14 +116,15 @@ def avalia_textos(textos, ass_cp):
    for i in range(len(textos)):
       ass_text = calcula_assinatura(textos[i])
       ass_comparada = compara_assinatura(ass_cp,ass_text)
-      if ass_comparada < aux:
+      if ass_comparada <= aux:
          aux = ass_comparada
          esse = i
 
-   return esse 
+   return esse + 1
 
-def(main):
-   print(f'Bem-vindo ao detector automático de COH-PIAH.\nInforme a assinatura típica de um aluno infectado:')
+def main():
    ass_cp = le_assinatura()
    textos = le_textos()
    print(f'O autor do texto {avalia_textos(textos,ass_cp)} está infectado com COH-PIAH')
+
+main()
