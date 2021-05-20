@@ -5,8 +5,6 @@ def sao_multiplicaveis(m1, m2):
       return False
 
 
-   pass
-
 
 
 m1 = [[1, 2, 3], [4, 5, 6]]
