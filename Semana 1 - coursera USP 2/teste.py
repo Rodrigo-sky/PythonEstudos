@@ -1,7 +1,12 @@
-def tarefa(mat):
-    dim = len(mat)
-    for i in range(dim):
-        print(mat[i][dim-1-i], end="  ")
 
-mat = [[1,2,3],[4,5,6],[7,8,9]]
-tarefa(mat)
+s = '12abc'
+# input()
+nome = ''
+frase = s.split()
+for item in frase:
+    nome += item.capitalize()
+    if(frase[-1] == item):
+        nome += ""
+    else:
+        nome += " "
+print(nome, type(nome))
