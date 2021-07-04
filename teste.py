@@ -1,7 +1,16 @@
-valorN = int(input("Digite o valor de n:"))
-while(valorN>1):
-    fator = valorN * (valorN - 1)
+def mutate_string(string, position, character):
+    lista = list(string)
+    for item in lista:
+        if(lista[position] == item):
+            lista[position] = character
+    string = ''.join(lista)
+    return(string)
     
-    valorN = valorN-1    
 
-print("o numero é",fator)
+
+
+string = 'abracadabra'
+position = 5
+character = 'k'
+
+print(mutate_string(string, position, character))

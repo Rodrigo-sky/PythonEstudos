@@ -1,15 +1,15 @@
 def solve(s):
-   print('nomeAntes:', s)
-   nome = ''
-   s.lower()
-   frase = s.split()
-   for item in frase:
-      nome += item.capitalize()
-      if(frase[-1] == item):
-         nome += ""
-      else:
-         nome += " "
-   print('nomeDps:',nome )
-   return(nome)
+    s.lower()
+    nome = ''
+    frase = s.split(' ')
 
-teste = '132 456 Wq  m e'
+    for item in frase:
+        nome += item.capitalize()
+        if(frase[-1] == item.lower()):
+            nome += ""
+        else:
+            nome += " "
+    return nome
+
+teste = '132 456 Wq      m e'
+print(solve(teste))
