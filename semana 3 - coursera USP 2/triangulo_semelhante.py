@@ -42,7 +42,5 @@ class Triangulo:
          return True
       else:
          return False
-      
-      
 
 main()
